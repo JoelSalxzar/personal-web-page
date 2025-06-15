@@ -12,7 +12,7 @@ import { blogPosts } from '../data/blogPosts';
 
 const BlogSection: React.FC = () => {
     return (
-        <Box sx={{ maxWidth: 1000, mx: 'auto', mt: 5, px: 2 }}>
+        <Box sx={{ maxWidth: 1000, mx: 'auto', mt: 8, px: 2 }}>
             <Typography variant="h4" gutterBottom align="center">
                 Blog
             </Typography>
