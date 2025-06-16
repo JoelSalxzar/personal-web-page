@@ -31,8 +31,10 @@ const BlogSection: React.FC = () => {
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <Button size="small" color="primary">
-                                    Read More
+                                <Button size="small" variant='outlined' color='inherit'>
+                                    <Typography variant='caption' sx={{ color: 'black' }}>
+                                        Read More
+                                    </Typography>
                                 </Button>
                             </CardActions>
                         </Card>
