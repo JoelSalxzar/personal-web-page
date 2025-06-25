@@ -1,5 +1,9 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { Box, TextField, Button, Typography } from '@mui/material';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import ContactPageOutlinedIcon from '@mui/icons-material/ContactPageOutlined';
+
 
 interface FormData {
     name: string;
@@ -38,11 +42,14 @@ const Contact: React.FC = () => {
                 p: 3,
                 boxShadow: 3,
                 borderRadius: 2,
+                alignContent: 'center'
             }}
         >
             <Typography variant="h5" gutterBottom>
-                Contact Me
+                You can find me here
             </Typography>
+            <InstagramIcon />
+            <LinkedInIcon />
             <form onSubmit={handleSubmit}>
                 <TextField
                     fullWidth

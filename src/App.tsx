@@ -1,6 +1,5 @@
 import {
-  Route, Link, Routes,
-  useNavigate
+  Route, Routes,
 } from 'react-router-dom';
 import Home from './components/Home';
 import AboutMe from './components/Aboutme';
@@ -11,14 +10,12 @@ import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import { HashLink } from 'react-router-hash-link';
 
 function App() {
-  const navigate = useNavigate();
-
   return (
     <div>
       <AppBar color='error'>
         <Toolbar>
           <Typography variant="h6" sx={{ color: 'black', flexGrow: 1 }}>
-            JoelSalxzar
+            Joel Cruz
           </Typography>
           <Button>
             <HashLink smooth to="/#about" style={{ color: 'black', textDecoration: 'none', fontWeight: 'bold' }}>

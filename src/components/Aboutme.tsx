@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
-import { Box, Typography, Avatar, Divider, Button } from '@mui/material';
-import image1 from '../assets/Joel and Covi.jpg'
+import { Box, Typography, Divider, Button } from '@mui/material';
+import cowboyme from '../assets/cowboy me.jpeg'
+import meinsalt from '../assets/meinsalt.jpeg'
+import sunsetintown from '../assets/sunsetintown.jpeg'
+import dario from '../assets/darío.jpeg'
+import luffy from '../assets/luffy.jpeg'
+import me from '../assets/me.jpeg'
+import sunset from '../assets/sunsetinhome.jpeg'
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+
 
 
 interface PhotoSliderProps {
@@ -20,7 +29,9 @@ const PhotoSlider: React.FC<PhotoSliderProps> = ({ images }) => {
 
     return (
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', width: '600px', margin: 'auto' }}>
-            <Button onClick={prevSlide} sx={{ color: 'black' }}>←</Button>
+            <Box sx={{ color: 'red' }}>
+                <Button onClick={prevSlide} sx={{ color: 'black' }}><ArrowBackIosIcon color='error' /></Button>
+            </Box>
             <Box sx={{ width: '100%', height: 'auto', borderRadius: '10px' }}>
                 <img
                     src={images[currentIndex]}
@@ -28,7 +39,7 @@ const PhotoSlider: React.FC<PhotoSliderProps> = ({ images }) => {
                     style={{ width: '400px', height: '300px', objectFit: 'cover', borderRadius: '10px' }}
                 />
             </Box>
-            <Button onClick={nextSlide} sx={{ color: 'black' }}>→</Button>
+            <Button onClick={nextSlide} sx={{ color: 'black' }}><ArrowForwardIosIcon color='error' /></Button>
         </Box>
     );
 };
@@ -47,12 +58,7 @@ const AboutMe: React.FC = () => {
                 textAlign: 'center',
             }}
         >
-            {/*             <Avatar
-                alt="Your Name"
-                src="/your-photo.jpg" // Replace with your actual photo or remove `src`
-                sx={{ width: 100, height: 100, mx: 'auto', mb: 2 }}
-            /> */}
-            <PhotoSlider images={[image1, 'https://th.bing.com/th/id/OIP.O9e7zkbH3fVLeBm0PKbEzwHaFi?w=238&h=180&c=7&r=0&o=7&pid=1.7&rm=3']} />
+            <PhotoSlider images={[meinsalt, me, dario, sunset, luffy, sunsetintown, cowboyme]} />
             <Typography variant="h4" gutterBottom>
                 About Me
             </Typography>
@@ -60,7 +66,8 @@ const AboutMe: React.FC = () => {
             <Divider sx={{ my: 2 }} />
 
             <Typography variant="body1" sx={{ textAlign: 'left' }}>
-                Hi I Like Cats :D
+                Hello and welcome to my site, this is Joel Cruz and I'm glad that you are here interested in reading about who I am, I will start simple; I'm 25 years old, currently located
+                in Mexico, Software Engineer with 4+ years of experience in backend and frontend[...]
             </Typography>
         </Box>
     );
