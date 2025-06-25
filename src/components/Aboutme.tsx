@@ -28,19 +28,51 @@ const PhotoSlider: React.FC<PhotoSliderProps> = ({ images }) => {
     };
 
     return (
-        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', width: '600px', margin: 'auto' }}>
+        <Box
+            sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                position: 'relative',
+                width: '100%',
+                maxWidth: '600px',
+                margin: 'auto',
+            }}
+        >
             <Box sx={{ color: 'red' }}>
-                <Button onClick={prevSlide} sx={{ color: 'black' }}><ArrowBackIosIcon color='error' /></Button>
+                <Button onClick={prevSlide} sx={{ color: 'black' }}>
+                    <ArrowBackIosIcon color="error" />
+                </Button>
             </Box>
-            <Box sx={{ width: '100%', height: 'auto', borderRadius: '10px' }}>
+
+            <Box
+                sx={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '10px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                }}
+            >
                 <img
                     src={images[currentIndex]}
                     alt={`Slide ${currentIndex}`}
-                    style={{ width: '400px', height: '300px', objectFit: 'cover', borderRadius: '10px' }}
+                    style={{
+                        width: '100%',
+                        maxWidth: '400px',
+                        height: 'auto',
+                        aspectRatio: '4 / 3',
+                        objectFit: 'cover',
+                        borderRadius: '10px',
+                    }}
                 />
             </Box>
-            <Button onClick={nextSlide} sx={{ color: 'black' }}><ArrowForwardIosIcon color='error' /></Button>
+
+            <Button onClick={nextSlide} sx={{ color: 'black' }}>
+                <ArrowForwardIosIcon color="error" />
+            </Button>
         </Box>
+
     );
 };
 
