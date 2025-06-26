@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import { Box, Typography, Divider, Button } from '@mui/material';
-import cowboyme from '../assets/cowboy me.jpeg'
-import meinsalt from '../assets/meinsalt.jpeg'
-import sunsetintown from '../assets/sunsetintown.jpeg'
-import dario from '../assets/darío.jpeg'
-import luffy from '../assets/luffy.jpeg'
-import me from '../assets/me.jpeg'
-import sunset from '../assets/sunsetinhome.jpeg'
+import { useSwipeable } from 'react-swipeable';
+import cowboyme from '../assets/cowboy me.jpeg';
+import meinsalt from '../assets/meinsalt.jpeg';
+import sunsetintown from '../assets/sunsetintown.jpeg';
+import dario from '../assets/darío.jpeg';
+import luffy from '../assets/luffy.jpeg';
+import me from '../assets/me.jpeg';
+import sunset from '../assets/sunsetinhome.jpeg';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-
-
 
 interface PhotoSliderProps {
     images: string[];
@@ -27,8 +26,15 @@ const PhotoSlider: React.FC<PhotoSliderProps> = ({ images }) => {
         setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
     };
 
+    const handlers = useSwipeable({
+        onSwipedLeft: nextSlide,
+        onSwipedRight: prevSlide,
+        trackMouse: true, // Allows swipe gestures with a mouse as well
+    });
+
     return (
         <Box
+            {...handlers}
             sx={{
                 display: 'flex',
                 alignItems: 'center',
@@ -37,6 +43,7 @@ const PhotoSlider: React.FC<PhotoSliderProps> = ({ images }) => {
                 width: '100%',
                 maxWidth: '600px',
                 margin: 'auto',
+                overflow: 'hidden',
             }}
         >
             <Box sx={{ color: 'red' }}>
@@ -56,7 +63,6 @@ const PhotoSlider: React.FC<PhotoSliderProps> = ({ images }) => {
             >
                 <img
                     src={images[currentIndex]}
-                    alt={`Slide ${currentIndex}`}
                     style={{
                         width: '100%',
                         maxWidth: '400px',
@@ -72,10 +78,8 @@ const PhotoSlider: React.FC<PhotoSliderProps> = ({ images }) => {
                 <ArrowForwardIosIcon color="error" />
             </Button>
         </Box>
-
     );
 };
-
 
 const AboutMe: React.FC = () => {
     return (

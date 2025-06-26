@@ -1,9 +1,7 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
-import { Box, TextField, Button, Typography } from '@mui/material';
+import { Box, TextField, Button, Typography, Stack } from '@mui/material';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import ContactPageOutlinedIcon from '@mui/icons-material/ContactPageOutlined';
-
 
 interface FormData {
     name: string;
@@ -29,7 +27,6 @@ const Contact: React.FC = () => {
         e.preventDefault();
         console.log('Form submitted:', formData);
         alert('Message sent!');
-        // Clear form
         setFormData({ name: '', email: '', message: '' });
     };
 
@@ -39,17 +36,20 @@ const Contact: React.FC = () => {
                 maxWidth: 500,
                 mx: 'auto',
                 mt: 5,
-                p: 3,
+                p: 4,
                 boxShadow: 3,
                 borderRadius: 2,
-                alignContent: 'center'
+                textAlign: 'center',
+                backgroundColor: '#f9f9f9',
             }}
         >
             <Typography variant="h5" gutterBottom>
-                You can find me here
+                Get in Touch
             </Typography>
-            <InstagramIcon />
-            <LinkedInIcon />
+            <Stack direction="row" spacing={2} justifyContent="center" sx={{ mb: 3 }}>
+                <InstagramIcon sx={{ fontSize: 40, color: '#E4405F' }} />
+                <LinkedInIcon sx={{ fontSize: 40, color: '#0077B5' }} />
+            </Stack>
             <form onSubmit={handleSubmit}>
                 <TextField
                     fullWidth
@@ -81,8 +81,20 @@ const Contact: React.FC = () => {
                     margin="normal"
                     required
                 />
-                <Button type="submit" variant="contained" color="inherit" fullWidth sx={{ mt: 2 }}>
-                    Send
+                <Button
+                    type="submit"
+                    variant="contained"
+                    color="error"
+                    fullWidth
+                    sx={{
+                        mt: 3,
+                        py: 1.5,
+                        fontSize: '1rem',
+                        backgroundColor: '#d32f2f',
+                        '&:hover': { backgroundColor: '#d32f2f' },
+                    }}
+                >
+                    Send Message
                 </Button>
             </form>
         </Box>
