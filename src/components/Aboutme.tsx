@@ -46,12 +46,11 @@ const PhotoSlider: React.FC<PhotoSliderProps> = ({ images }) => {
                 overflow: 'hidden',
             }}
         >
-            <Box sx={{ color: 'red' }}>
+            <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                 <Button onClick={prevSlide} sx={{ color: 'black' }}>
                     <ArrowBackIosIcon color="error" />
                 </Button>
             </Box>
-
             <Box
                 sx={{
                     width: '100%',
@@ -73,10 +72,11 @@ const PhotoSlider: React.FC<PhotoSliderProps> = ({ images }) => {
                     }}
                 />
             </Box>
-
-            <Button onClick={nextSlide} sx={{ color: 'black' }}>
-                <ArrowForwardIosIcon color="error" />
-            </Button>
+            <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+                <Button onClick={nextSlide} sx={{ color: 'black' }}>
+                    <ArrowForwardIosIcon color="error" />
+                </Button>
+            </Box>
         </Box>
     );
 };

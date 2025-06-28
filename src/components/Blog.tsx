@@ -9,12 +9,16 @@ import {
     Button
 } from '@mui/material';
 import { blogPosts } from '../data/blogPosts';
+import GitHubProjects from './projects';
 
 const BlogSection: React.FC = () => {
     return (
         <Box sx={{ maxWidth: 1000, mx: 'auto', mt: 8, px: 2 }}>
             <Typography variant="h4" gutterBottom align="center" sx={{ fontWeight: 'bold' }}>
                 The Stuff You May Be Here For...
+            </Typography>
+            <Typography variant="h5" gutterBottom align="center" sx={{ fontWeight: 'bold' }}>
+                Blogs
             </Typography>
 
             <Grid container spacing={4}>
@@ -53,6 +57,10 @@ const BlogSection: React.FC = () => {
                     </Grid>
                 ))}
             </Grid>
+            <Typography variant="h5" gutterBottom align="center" sx={{ fontWeight: 'bold', paddingTop: '20px' }}>
+                Projects
+            </Typography>
+            <GitHubProjects username='JoelSalxzar' />
         </Box>
     );
 };
